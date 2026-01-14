@@ -1,5 +1,19 @@
 # A modern look into calculating everything important
 
+import os
+import sys
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        # If not frozen, use the absolute path of the current directory
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 print("Welcome to the Modern Calculator\n")
 print("Please Choose the desired option from below: \n")
 # Calculation of Maintainence Calorie, Arithmetics, Mental health level and Productivity level of the day
@@ -464,3 +478,9 @@ if choice_1 == 4:
         print(f"Total points scored by you is: {Total_points_2}")
         print("Here is an important tip to boost your productivity: \n")
         print(f"{imp_tip_20}")  
+        
+    # Your calculator code here
+print(f"Result: {Maintain_calorie}")
+
+# Add this at the end
+input("Press Enter to exit...")
